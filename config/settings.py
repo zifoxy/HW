@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     #user apps
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
