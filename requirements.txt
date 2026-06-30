@@ -1,0 +1,9 @@
+django
+djangorestframework
+python-dotenv
+pillow
+django-filter
+djangorestframework-simplejwt
+requests
+django-cors-headers
+drf-yasg
