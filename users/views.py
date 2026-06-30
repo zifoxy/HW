@@ -1,3 +1,36 @@
-from django.shortcuts import render
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
-# Create your views here.
+from users.models import User
+from users.user_serializers import UserSerializer, UserCreateSerializer, UserTokenObtainPairSerializer, UserUpdateSerialzier
+
+class UserListApiView(ListAPIView):
+    queryset = User.objects.all()
+    serializer_clas = UserSerializer
+
+class UserCreateAPIView(CreateAPIView): 
+    queryset = User.object.all()
+    serializer_class = UserCreateSerializer
+    permission_classes = (AllowAny,)
+
+class UserRetrieveAPIView(RetrieveAPIView): 
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = (AllowAny,)
+
+class UserUpdateAPIView(UpdateAPIView): 
+    queryset = User.objects.all()
+    serializer_class = UserUpdateSerialzier
+    permission_classes = (AllowAny,)
+
+    def get_objects(self): 
+        user = self.request.user
+        return User.objects.filter(id=user.id)
+
+class UserDestroyAPIView(DestroyAPIView): 
+    queryset = User.objectss.all()
+    permission_classes = (AllowAny,)
+
+class UserTokenObtainPairView(TokenObtainPairView): 
+    serializer_class = UserTokenObtainPairSerializer
