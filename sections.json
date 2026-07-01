@@ -1,0 +1,222 @@
+[
+    {
+      "model": "sections.section",
+      "pk": 1,
+      "fields": {
+        "title": "Введение в программирование",
+        "description": "Основные понятия и принципы программирования"
+      }
+    },
+    {
+      "model": "sections.section",
+      "pk": 2,
+      "fields": {
+        "title": "Python основы",
+        "description": "Синтаксис и базовые конструкции Python"
+      }
+    },
+    {
+      "model": "sections.section",
+      "pk": 3,
+      "fields": {
+        "title": "Работа с данными",
+        "description": "Структуры данных и алгоритмы"
+      }
+    },
+    {
+      "model": "sections.section",
+      "pk": 4,
+      "fields": {
+        "title": "Веб-разработка",
+        "description": "Создание веб-приложений на Django"
+      }
+    },
+    {
+      "model": "sections.section",
+      "pk": 5,
+      "fields": {
+        "title": "Базы данных",
+        "description": "Основы SQL и работа с БД"
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 1,
+      "fields": {
+        "section": 1,
+        "title": "Что такое программирование",
+        "content": "Программирование - это процесс создания компьютерных программ. Оно включает в себя написание, тестирование и поддержку исходного кода. Программы пишутся на языках программирования, которые преобразуются в машинный код, понятный компьютеру."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 2,
+      "fields": {
+        "section": 1,
+        "title": "История развития языков",
+        "content": "От машинного кода до современных языков высокого уровня. Первые языки программирования появились в 1950-х годах. Среди них: Fortran (1957), Lisp (1958), Cobol (1959). В 1970-х появились C и Pascal. В 1990-х - Java, Python, Ruby. Современные языки становятся более удобными и безопасными."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 3,
+      "fields": {
+        "section": 2,
+        "title": "Установка Python",
+        "content": "Пошаговая инструкция по установке Python на различные операционные системы. Для Windows: скачайте установщик с python.org и следуйте инструкциям. Для macOS: используйте Homebrew или официальный установщик. Для Linux: используйте пакетный менеджер (apt, yum, pacman). Проверьте установку командой 'python --version'."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 4,
+      "fields": {
+        "section": 2,
+        "title": "Переменные и типы данных",
+        "content": "В Python есть такие типы данных как: числа (int, float), строки (str), списки (list), словари (dict), кортежи (tuple) и множества (set). Переменные создаются простым присваиванием: x = 10, name = 'John'. Python - язык с динамической типизацией, тип определяется автоматически."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 5,
+      "fields": {
+        "section": 2,
+        "title": "Условные операторы",
+        "content": "Условные операторы if, elif, else позволяют принимать решения в коде в зависимости от условий. Пример: if age >= 18: print('Взрослый') else: print('Ребенок'). Можно использовать вложенные условия и логические операторы and, or, not."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 6,
+      "fields": {
+        "section": 2,
+        "title": "Циклы в Python",
+        "content": "Циклы for и while используются для повторения действий. Цикл for используется для итерации по последовательностям: for item in list: print(item). Цикл while выполняется до выполнения условия: while x > 0: x -= 1. Используйте break для выхода и continue для пропуска итерации."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 7,
+      "fields": {
+        "section": 3,
+        "title": "Списки и кортежи",
+        "content": "Списки (list) - изменяемые упорядоченные коллекции. Создаются: [1, 2, 3]. Кортежи (tuple) - неизменяемые упорядоченные коллекции. Создаются: (1, 2, 3). Оба типа поддерживают индексацию и срезы. Списки можно изменять: append, insert, remove, pop."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 8,
+      "fields": {
+        "section": 3,
+        "title": "Словари в Python",
+        "content": "Словари (dict) хранят данные в формате ключ-значение. Создаются: {'key': 'value'}. Ключи должны быть неизменяемыми объектами, значения могут быть любыми. Доступ к значениям: dict['key'] или dict.get('key'). Поддерживают методы: keys(), values(), items()."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 9,
+      "fields": {
+        "section": 3,
+        "title": "Множества",
+        "content": "Множества (set) хранят только уникальные элементы. Создаются: {1, 2, 3} или set([1, 2, 3]). Поддерживают операции: union (|), intersection (&), difference (-), symmetric_difference (^). Используются для удаления дубликатов и проверки вхождения."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 10,
+      "fields": {
+        "section": 4,
+        "title": "Введение в Django",
+        "content": "Django - высокоуровневый фреймворк для веб-разработки на Python. Он следует принципу DRY (Don't Repeat Yourself). Включает: ORM для работы с БД, шаблонизатор, админ-панель, аутентификацию, обработку форм. Разработан в 2005 году, сейчас активно поддерживается."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 11,
+      "fields": {
+        "section": 4,
+        "title": "Создание Django проекта",
+        "content": "Создание и настройка Django-проекта. Команды: django-admin startproject myproject - создает проект. python manage.py runserver - запускает сервер. python manage.py startapp myapp - создает приложение. Проект состоит из настроек, URL-маршрутов и WSGI/ASGI конфигурации."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 12,
+      "fields": {
+        "section": 4,
+        "title": "Модели Django",
+        "content": "Модели Django - это Python классы, наследующие от django.db.models.Model. Они описывают структуру данных и взаимодействуют с базой данных. Пример: class User(models.Model): name = models.CharField(max_length=100). После создания моделей выполняются миграции."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 13,
+      "fields": {
+        "section": 4,
+        "title": "URLs и Views",
+        "content": "URL-маршруты определяются в файле urls.py с помощью path() или re_path(). Views - это функции или классы, которые обрабатывают запросы и возвращают ответы. Views могут возвращать HTML, JSON, файлы. Используйте шаблоны для рендеринга HTML."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 14,
+      "fields": {
+        "section": 4,
+        "title": "Шаблоны Django",
+        "content": "Шаблоны используют язык шаблонов Django для создания HTML-страниц. Поддерживают: {{ variable }} - вывод переменной, {% tag %} - теги (if, for, block), {{ value|filter }} - фильтры. Наследование шаблонов через {% extends %} и {% block %}."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 15,
+      "fields": {
+        "section": 4,
+        "title": "Формы в Django",
+        "content": "Django формы обрабатывают ввод данных, валидацию и защиту от CSRF. Создаются как классы: class MyForm(forms.Form). Поддерживают поля: CharField, IntegerField, EmailField. ModelForm создается на основе модели. Формы рендерятся в шаблонах."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 16,
+      "fields": {
+        "section": 5,
+        "title": "Основы SQL",
+        "content": "SQL (Structured Query Language) используется для управления реляционными базами данных. Основные операции: SELECT - выборка данных, INSERT - добавление, UPDATE - обновление, DELETE - удаление. Пример: SELECT * FROM users WHERE age > 18. SQL бывает разных диалектов: MySQL, PostgreSQL, SQLite."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 17,
+      "fields": {
+        "section": 5,
+        "title": "Связи между таблицами",
+        "content": "В реляционных БД используются связи: One-to-One (один-к-одному), One-to-Many (один-ко-многим) через Foreign Key, Many-to-Many (многие-ко-многим) через промежуточную таблицу. Пример: FOREIGN KEY (user_id) REFERENCES users(id)."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 18,
+      "fields": {
+        "section": 5,
+        "title": "Индексы и оптимизация",
+        "content": "Индексы ускоряют выполнение запросов SELECT за счет быстрого поиска. Создаются: CREATE INDEX idx_name ON table(column). Правильное использование индексов критично для производительности. Избегайте индексов на часто изменяемых столбцах и слишком больших индексов."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 19,
+      "fields": {
+        "section": 5,
+        "title": "Транзакции",
+        "content": "Транзакции обеспечивают атомарность операций. Принципы ACID: Atomicity - атомарность, Consistency - согласованность, Isolation - изоляция, Durability - долговечность. Пример: BEGIN; UPDATE accounts SET balance = balance - 100; COMMIT; Используются для финансовых операций."
+      }
+    },
+    {
+      "model": "sections.content",
+      "pk": 20,
+      "fields": {
+        "section": 5,
+        "title": "ORM Django",
+        "content": "Object-Relational Mapping (ORM) Django позволяет работать с БД через Python объекты. Это абстрагирует SQL запросы и делает код чище. Пример: User.objects.filter(age__gte=18) вместо SELECT * FROM users WHERE age >= 18. Поддерживает связи, агрегации, транзакции."
+      }
+    }
+  ]
