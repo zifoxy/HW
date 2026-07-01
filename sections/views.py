@@ -4,10 +4,9 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 from sections.models import Section, Content, Question
 from sections.serializers.sections_serializers import SectionSerializer, SectionListSerializer
-from sections.permissions import IsModerator, IsSuperuser
 from sections.serializers.content_serializers import ContentSerializer, ContentListSerializer, ContentSectionSerializer
-from sections.serializers.content_serializers import ContentSerializer, ContentSectionSerializer, ContentListSerializer
 from sections.serializers.question_serializers import QuestionSectionSerializer, QuestionSerializer
+from sections.permissions import IsModerator, IsSuperuser
 from sections.paginators import SectionPaginator, ContentPaginator, QuestionPaginator
 
 class SectionListApiView(ListAPIView):
