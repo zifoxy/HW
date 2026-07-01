@@ -13,7 +13,7 @@ class Section(models.Model):
     class Meta: 
         verbose_name = _('Section')
         verbose_name_plural = _('Sections')
-        ordedring = ['id']
+        ordering = ['id']
 
 class Content(models.Model): 
     section = models.ForeignKey(Section, on_delete=models.CASCADE, verbose_name=_('Section'))

@@ -26,7 +26,7 @@ from rest_framework import permissions
 schema_view = get_schema_view(
     openapi.Info(
         title = 'Base Homework API',
-        default_verion='v0.1',
+        default_version='v0.1',
         description='My Homework API',
         terms_of_service='https://www.google.com/policies/terms',
         contact=openapi.Contact(email='thefunnylex@gmail.com'),
@@ -41,6 +41,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     #app urls
+    path('', include('sections.urls', namespace='sections')),
     path('users/', include('users.urls', namespace='users')),
 
     #documents urls

@@ -10,7 +10,7 @@ class UserListApiView(ListAPIView):
     serializer_clas = UserSerializer
 
 class UserCreateAPIView(CreateAPIView): 
-    queryset = User.object.all()
+    queryset = User.objects.all()
     serializer_class = UserCreateSerializer
     permission_classes = (AllowAny,)
 
@@ -29,7 +29,7 @@ class UserUpdateAPIView(UpdateAPIView):
         return User.objects.filter(id=user.id)
 
 class UserDestroyAPIView(DestroyAPIView): 
-    queryset = User.objectss.all()
+    queryset = User.objects.all()
     permission_classes = (AllowAny,)
 
 class UserTokenObtainPairView(TokenObtainPairView): 
