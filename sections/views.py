@@ -2,11 +2,13 @@ from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView,
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
-from sections.models import Section, Content
+from sections.models import Section, Content, Question
 from sections.serializers.sections_serializers import SectionSerializer, SectionListSerializer
 from sections.permissions import IsModerator, IsSuperuser
 from sections.serializers.content_serializers import ContentSerializer, ContentListSerializer, ContentSectionSerializer
-from sections.paginators import SectionPaginator, ContentPaginator
+from sections.serializers.content_serializers import ContentSerializer, ContentSectionSerializer, ContentListSerializer
+from sections.serializers.question_serializers import QuestionSectionSerializer, QuestionSerializer
+from sections.paginators import SectionPaginator, ContentPaginator, QuestionPaginator
 
 class SectionListApiView(ListAPIView):
     serializer_class = SectionListSerializer
@@ -57,3 +59,24 @@ class ContentDestroyApiView(DestroyAPIView):
     serializer_class = ContentSerializer
     queryset = Content.objects.all()
     #permission_classes = (IsAuthenticated, IsSuperuser)
+
+class QuestionListApiView(ListAPIView):
+    serializer_class = QuestionSerializer
+    queryset = Question.objects.all()
+    #permission_classes = (IsAuthenticated,)
+    pagination_class = QuestionPaginator
+
+class QuestionRetrieveApiView(RetrieveAPIView): 
+    serializer_class = QuestionSerializer
+    queryset = Question.objects.all()
+    #permission_classes = (IsAuthenticated,)
+
+    def post(self, request, *args, **kwargs): 
+        answers = [question.answer for question in Question.objects.all()]
+        answer = answers[self.kwargs.get('pk') - 1]
+        answer = answer.title.strip().lower()
+        member_answer = request.data.get('member_answer').strip().lower()
+        is_correct = member_answer == answer
+        return Response({'is_correct': is_correct})
+
+    

@@ -218,5 +218,35 @@
         "title": "ORM Django",
         "content": "Object-Relational Mapping (ORM) Django позволяет работать с БД через Python объекты. Это абстрагирует SQL запросы и делает код чище. Пример: User.objects.filter(age__gte=18) вместо SELECT * FROM users WHERE age >= 18. Поддерживает связи, агрегации, транзакции."
       }
+    },
+    {
+      "model": "sections.question",
+      "pk": 1,
+      "fields": {
+        "section": 1,
+        "question": "Что такое программирование?",
+        "answer": "Программирование - это процесс создания компьютерных программ, включающий написание, тестирование и поддержку исходного кода.",
+        "member_answer": null
+      }
+    },
+    {
+      "model": "sections.question",
+      "pk": 2,
+      "fields": {
+        "section": 2,
+        "question": "Какие основные типы данных в Python?",
+        "answer": "Основные типы данных в Python: числа (int, float), строки (str), списки (list), словари (dict), кортежи (tuple), множества (set) и булевы значения (bool).",
+        "member_answer": null
+      }
+    },
+    {
+      "model": "sections.question",
+      "pk": 3,
+      "fields": {
+        "section": 3,
+        "question": "В чем разница между списком и кортежем?",
+        "answer": "Список (list) - изменяемый тип данных, кортеж (tuple) - неизменяемый. Список можно изменять после создания, кортеж - нет.",
+        "member_answer": null
+      }
     }
   ]
