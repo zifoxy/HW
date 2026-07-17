@@ -62,5 +62,5 @@ class SectionTestMember(APITestCase):
 
     def test_07_section_delete_forbidden(self): 
         response = self.client.delete(f'/section/{self.test_section.id}/delete/')
-        self.assertEqual(response.status_code, status.HTTP_4 03_FORBIDDEN)
-        self. assertEqual(response.json().get('detail'), '')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self. assertEqual(response.json().get('detail'), 'У вас недостаточно прав')
