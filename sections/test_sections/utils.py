@@ -49,3 +49,4 @@ def get_test_question():
         question="Test Question",
         answer=content,
     )
+    return question
