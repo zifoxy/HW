@@ -10,7 +10,7 @@ def get_admin_user():
         is_active=True,        
     )
     user.set_password('qwerty')
-    user.save
+    user.save()
     return user
 
 def get_member_user():
@@ -31,3 +31,12 @@ def get_test_section():
         description='Test Description',
     )
     return section
+
+def get_test_content():
+    section = get_test_section()
+    content = Content.objects.create(
+        section=section,
+        title="Test Title Content",
+        content="Test Content",
+    )
+    return content
