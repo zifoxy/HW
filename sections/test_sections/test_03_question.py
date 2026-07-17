@@ -1,18 +1,8 @@
-import os
-import sys
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-if BASE_DIR not in sys.path:
-    sys.path.insert(0, BASE_DIR)
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
-
-import django
-django.setup()
-
 from rest_framework.test import APITestCase
 from rest_framework import status
 
-from sections.test_sections.utils import get_admin_user, get_member_user, get_test_content, get_test_question
+from sections.test_sections.utils import get_admin_user, get_test_question
+
 
 class QuestionTestCase(APITestCase):
     def setUp(self):
@@ -46,13 +36,3 @@ class QuestionTestCase(APITestCase):
         response = self.client.post(f'/question/{self.question.id}/', data=wrong_answer)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.json().get('is_correct'), False)
-
-
-
-if __name__ == '__main__':
-    from django.conf import settings
-    from django.test.utils import get_runner
-
-    TestRunner = get_runner(settings)
-    failures = TestRunner(verbosity=2).run_tests(['sections.test_sections.test_03_question'])
-    sys.exit(bool(failures))
