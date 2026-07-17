@@ -67,7 +67,29 @@ class ContentTestMember(APITestCase):
         self.client.credentials(HTTP_AUTHORIZATION=f'Bearer {self.access_token}')
         self.content = get_test_content()
 
+    def test_13_content_create_forbidden(self):
+        data = {
+            'section': self.content.section.id,
+            'title': 'Test content title create FORBIDDEN',
+            'content': 'Test Content create FORBIDDEN',
+        }
+        response = self.client.post('/content/create/', data=data)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.json().get('detail'), 'У вас недостаточно прав для выполнения данного действия.')
         
+    def test_14_content_update_forbidden(self):
+        data = {
+            'title': "Test content title PATCH FORBIDDEN",
+        }
+        response = self.client.patch(f'/content/{self.content.id}/update/', data=data)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.json().get('detail'), 'У вас недостаточно прав для выполнения данного действия.')
+
+    def test_15_content_delete_forbidden(self):
+        response = self.client.delete(f'/content/{self.content.id}/delete/')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.json().get('detail'), 'You are not a superuser')
+
 
 if __name__ == '__main__':
     from django.conf import settings
