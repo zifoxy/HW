@@ -4,6 +4,7 @@ from rest_framework.permissions import BasePermission
 
 from users.models import UserRoles
 
+
 class IsModerator(BasePermission):
     message = _('You are not a moderator')
 
@@ -11,6 +12,7 @@ class IsModerator(BasePermission):
         if request.user.is_authenticated and request.user.role == UserRoles.MODERATOR:
             return True
         return False
+
 
 class IsSuperuser(BasePermission):
     message = _('You are not a superuser')
