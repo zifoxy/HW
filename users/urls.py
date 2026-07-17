@@ -13,4 +13,8 @@ urlpatterns = [
     path('<int:pk>/', UserRetrieveAPIView.as_view(), name='user_retrieve'),
     path('<int:pk>/update/', UserUpdateAPIView.as_view(), name='user_update'),
     path('<int:pk>/delete/', UserDestroyAPIView.as_view(), name='user_delete'),
+
+    # JWT
+    path('token/', UserTokenObtainPairView.as_view(), name='token'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
