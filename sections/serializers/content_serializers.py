@@ -3,20 +3,22 @@ from rest_framework.relations import SlugRelatedField
 
 from sections.models import Content, Section
 
+
 class ContentSerializer(ModelSerializer):
-    class Meta: 
+    class Meta:
         model = Content
         fields = '__all__'
 
+
 class ContentSectionSerializer(ModelSerializer):
-    class Meta: 
+    class Meta:
         model = Content
         fields = ('id', 'title')
+
 
 class ContentListSerializer(ModelSerializer):
     section = SlugRelatedField(slug_field='title', queryset=Section.objects.all())
 
-    class Meta: 
+    class Meta:
         model = Content
         fields = ('id', 'section', 'title')
-        
