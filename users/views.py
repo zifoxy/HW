@@ -7,7 +7,7 @@ from users.user_serializers import UserSerializer, UserCreateSerializer, UserTok
 
 class UserListApiView(ListAPIView):
     queryset = User.objects.all()
-    serializer_clas = UserSerializer
+    serializer_class = UserSerializer
 
 class UserCreateAPIView(CreateAPIView): 
     queryset = User.objects.all()
