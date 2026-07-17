@@ -9,4 +9,3 @@ django-cors-headers
 drf-yasg
 coverage
 flake8
-psycopg2-binary
