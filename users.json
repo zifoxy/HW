@@ -1,0 +1,78 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$D8Q6FQBWxH7VJ32CkIoP5y$Vzd+gPRNZ0IclWP56kbXYD38ekSV7VbrhvodnRV5REQ=",
+        "last_login": null,
+        "is_superuser": true,
+        "is_staff": true,
+        "date_joined": "2026-06-30T23:08:18.868Z",
+        "email": "admin@web.top",
+        "role": "admin",
+        "first_name": null,
+        "last_name": "Administratorov",
+        "phone_number": null,
+        "is_active": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+        "password": "!sLC1w1QKlBfkEUz2rjwwfGhFKSVIFfu8iB4pXlUy",
+        "last_login": null,
+        "is_superuser": false,
+        "is_staff": true,
+        "date_joined": "2026-06-30T23:08:18.877Z",
+        "email": "moderator@web.top",
+        "role": "moderator",
+        "first_name": null,
+        "last_name": "Moderatorov",
+        "phone_number": null,
+        "is_active": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+        "password": "!9wdfik2GQU8SnxkQ4GrOzV9HnPA3eqw5GraRZMxX",
+        "last_login": null,
+        "is_superuser": false,
+        "is_staff": false,
+        "date_joined": "2026-06-30T23:08:18.882Z",
+        "email": "user@web.top",
+        "role": "User",
+        "first_name": null,
+        "last_name": "Userovich",
+        "phone_number": null,
+        "is_active": true,
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$FAnLuIhOi1od8JzH6uJE6f$hyrF/ZbWCXEURaAbI79IPhCgxWvxhPvRZ+cxBNpxHO4=",
+        "last_login": null,
+        "is_superuser": false,
+        "is_staff": false,
+        "date_joined": "2026-07-17T16:26:58.849Z",
+        "email": "admin@test.com",
+        "role": "member",
+        "first_name": null,
+        "last_name": null,
+        "phone_number": null,
+        "is_active": true,
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
