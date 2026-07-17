@@ -29,14 +29,14 @@ urlpatterns = [
     path(p.join(section, int_pk, update), SectionUpdateApiView.as_view(), name='section_update'),
     path(p.join(section, int_pk, delete), SectionDestroyApiView.as_view(), name='section_delete'),
 
-    #content urlpatterns
+    # content urlpatterns
     path(p.join(content), ContentListApiView.as_view(), name='content_list'),
     path(p.join(content, create), ContentCreateApiView.as_view(), name='content_create'),
     path(p.join(content, int_pk), ContentRetrieveApiView.as_view(), name='content_detail'),
     path(p.join(content, int_pk, update), ContentUpdateApiView.as_view(), name='content_update'),
     path(p.join(content, int_pk, delete), ContentDestroyApiView.as_view(), name='content_delete'),
 
-    #question urlpatterns
+    # question urlpatterns
     path(p.join(question), QuestionListApiView.as_view(), name='question_list'),
     path(p.join(question, int_pk), QuestionRetrieveApiView.as_view(), name='question'),
 
