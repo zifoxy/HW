@@ -4,7 +4,7 @@ from sections.models import Question, Section, Content
 
 
 @admin.register(Section)
-class SectionAdmin(admin.ModelAdmin): 
+class SectionAdmin(admin.ModelAdmin):
     list_display = ('id', 'title',)
     list_filter = ('title',)
     ordering = ('id',)
@@ -12,16 +12,16 @@ class SectionAdmin(admin.ModelAdmin):
 
 
 @admin.register(Content)
-class ContentAdmin(admin.ModelAdmin): 
+class ContentAdmin(admin.ModelAdmin):
     list_display = ('id', 'section', 'title',)
     list_filter = ('section',)
     ordering = ('id', 'section',)
     search_fields = ('title',)
-    
+
 
 @admin.register(Question)
-class QuestionAdmin(admin.ModelAdmin): 
+class QuestionAdmin(admin.ModelAdmin):
     list_display = ('id', 'section', 'question', 'answer')
     list_filter = ('section',)
     ordering = ('id', 'section',)
-    search_fields = ('question', )
+    search_fields = ('question',)
