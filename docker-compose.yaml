@@ -1,48 +1,54 @@
 services:
-
   redis:
-    image: redis
+    image: redis:7-alpine
     ports:
       - "6379:6379"
     restart: always
 
   postgres:
-    image: postgres
+    image: postgres:16-alpine
     container_name: postgres_python
     env_file: .env
-    user: ${POSTGRESQL_USER}
     environment:
-      POSTGRES_USER: ${POSTGRESQL_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_DOCKER}
-      POSTGRES_DATABASE: ${POSTGRES_DATABASE_DOCKER}
+      POSTGRES_USER: ${PASTGRESQL_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_DOCKER:-postgres}
+      POSTGRES_DB: ${POSTGRES_DATABASE_DOCKER:-homework}
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
+      test: ["CMD-SHELL", "pg_isready -U ${PASTGRESQL_USER:-postgres} -d ${POSTGRES_DATABASE_DOCKER:-homework}"]
       interval: 10s
       timeout: 5s
       retries: 5
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports: 
+    ports:
       - "5432:5432"
 
-api: 
-  build: .
-  tty: true
-  command: >
-    bash -c "python manage.py makemigrations
-    $$ python manage.py migrate
-    $$ python manage.py loaddata users.json
-    $$ python manage.py loaddata sections.json
-    $$ python manage.py runserver 0.0.0.0:8000"
-    "
-  ports:
-    - "8000:8000"
-  volumes:
-    - .:/code
-  depends_on:
-    postgres:
-      condition: service_healthy
+  api:
+    build: .
+    tty: true
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py loaddata users.json &&
+             python manage.py loaddata sections.json &&
+             python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    env_file: .env
+    environment:
+      PASTGRESQL_USER: ${PASTGRESQL_USER:-postgres}
+      POSTGRES_DATABASE_DOCKER: ${POSTGRES_DATABASE_DOCKER:-homework}
+      POSTGRES_PASSWORD_DOCKER: ${POSTGRES_PASSWORD_DOCKER:-postgres}
+      POSTGRESQL_PORT_DOCKER: 5432
+      POSTGRESQL_HOST_DOCKER: postgres
+      CACHE_LOCATION: redis://redis:6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
 
-volumes: 
+volumes:
   postgres_data:
